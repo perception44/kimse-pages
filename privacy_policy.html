@@ -5,167 +5,325 @@
   <title>Gizlilik Politikası - Kimse</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #f0f4f8;
+      color: #1a1a2e;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: linear-gradient(160deg, #2667AA 0%, #1a4a7a 50%, #0f3460 100%);
+      color: #fff;
+      text-align: center;
+      padding: 56px 24px 72px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(160deg, #2667AA 0%, #1a4a7a 50%, #0f3460 100%);
+      clip-path: ellipse(55% 100% at 50% 0%);
+    }
+
+    .hero img {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: 0.95rem;
+      opacity: 0.8;
+      font-weight: 300;
+    }
+
+    .back-link {
+      position: absolute;
+      top: 20px;
+      left: 24px;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: #fff; }
+
+    .container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 24px;
-      line-height: 1.6;
-      background-color: #fafafa;
-      color: #222;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
     }
-    h1, h2, h3 {
-      color: #111;
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 36px 32px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
     }
-    h1 {
-      margin-bottom: 0.5em;
+
+    .card:first-child { margin-top: -20px; }
+
+    .card h2 {
+      font-size: 1.1rem;
+      color: #2667AA;
+      margin-bottom: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    h2 {
-      margin-top: 1.5em;
+
+    .card h2 .num {
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, #2667AA, #5B9BD5);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
     }
-    a {
-      color: #0066cc;
+
+    .card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin: 14px 0 6px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 10px;
+    }
+
+    .card ul {
+      margin: 8px 0 12px 0;
+      padding-left: 20px;
+    }
+
+    .card li {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 6px;
+    }
+
+    .card a {
+      color: #2667AA;
       text-decoration: none;
+      font-weight: 500;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .card a:hover { text-decoration: underline; }
+
+    .contact-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, #eef4fb, #e8eef6);
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid #dce6f0;
+      margin-top: 8px;
     }
-    .section {
-      margin-bottom: 1.25em;
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      background: #2667AA;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg { width: 20px; height: 20px; fill: #fff; }
+
+    .contact-label {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .contact-box a { font-size: 0.9rem; font-weight: 600; }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px 32px;
+      font-size: 0.78rem;
+      color: #b0b8c4;
+      letter-spacing: 0.3px;
     }
   </style>
 </head>
 <body>
-  <h1>Gizlilik Politikası</h1>
-  <p>Bu Gizlilik Politikası, Kimse uygulamasının (“Uygulama”) kullanıcı verilerini nasıl topladığını, kullandığını ve sakladığını açıklamaktadır. Uygulamayı kullanarak bu politikayı kabul etmiş olursunuz.</p>
 
-  <div class="section">
-    <h2>1. Toplanan Veriler</h2>
-
-    <h3>1.1. Cihaz Verileri</h3>
-    <p>
-      Uygulama, bildirim göndermek ve güvenlik amacıyla cihaz tanımlayıcıları (örneğin bildirim tokeni, device ID) toplayabilir.
-      Bu veriler:
-    </p>
-    <ul>
-      <li>Bildirim göndermek,</li>
-      <li>Banlama ve güvenlik tedbirlerini uygulamak,</li>
-      <li>Uygulamanın kötüye kullanımını engellemek</li>
-    </ul>
-    <p>amaçlarıyla kullanılır.</p>
-
-    <h3>1.2. Kullanıcı İçerikleri</h3>
-    <p>
-      Uygulama anonimdir; isim, e-posta, telefon gibi doğrudan kişisel bilgiler talep edilmez. Ancak uygulama içinde
-      kullanıcılar tarafından oluşturulan içerikler sunucularda saklanır:
-    </p>
-    <ul>
-      <li>Gönderiler (postlar),</li>
-      <li>Özel mesajlar ve mesaj geçmişi,</li>
-      <li>Yüklenen fotoğraflar (Firebase Storage üzerinde saklanır).</li>
-    </ul>
-    <p>Bu içerikler, hizmetin çalışması, moderasyon ve güvenlik amaçlarıyla kaydedilir.</p>
-
-    <h3>1.3. Teknik Veriler</h3>
-    <p>
-      Uygulama, teknik sorunları tespit etmek ve performansı iyileştirmek için hata kayıtları ve performans logları gibi teknik veriler toplayabilir. Google Analytics kullanılmamaktadır. Firebase Crashlytics hata raporlama için kullanılmaktadır.
-    </p>
+  <div class="hero">
+    <a href="index.html" class="back-link">&larr; Ana Sayfa</a>
+    <img src="logo.png" alt="Kimse Logo" />
+    <h1>Gizlilik Politikası</h1>
+    <p>Kimse uygulaması kullanıcı verileri hakkında bilgilendirme</p>
   </div>
 
-  <div class="section">
-    <h2>2. Verilerin Kullanım Amaçları</h2>
-    <p>Toplanan veriler aşağıdaki amaçlarla kullanılmaktadır:</p>
-    <ul>
-      <li>Uygulamanın güvenli ve istikrarlı şekilde çalışmasını sağlamak,</li>
-      <li>Kullanıcılar arasındaki etkileşimi (mesajlaşma, gönderi görüntüleme vb.) sağlamak,</li>
-      <li>Topluluk kurallarını uygulamak ve uygunsuz içerikleri tespit etmek,</li>
-      <li>Kötüye kullanım, spam veya saldırı girişimlerini önlemek,</li>
-      <li>Gerekli durumlarda bildirim göndermek.</li>
-    </ul>
-    <p>Veriler üçüncü kişilere satılmaz ve reklam amaçlı profil çıkarımı için kullanılmaz.</p>
+  <div class="container">
+
+    <div class="card">
+      <p>Bu Gizlilik Politikası, Kimse uygulamasının ("Uygulama") kullanıcı verilerini nasıl topladığını, kullandığını ve sakladığını açıklamaktadır. Uygulamayı kullanarak bu politikayı kabul etmiş olursunuz.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">1</span> Toplanan Veriler</h2>
+
+      <h3>1.1. Cihaz Verileri</h3>
+      <p>Uygulama, bildirim göndermek ve güvenlik amacıyla cihaz tanımlayıcıları (örneğin bildirim tokeni, device ID) toplayabilir. Bu veriler:</p>
+      <ul>
+        <li>Bildirim göndermek,</li>
+        <li>Banlama ve güvenlik tedbirlerini uygulamak,</li>
+        <li>Uygulamanın kötüye kullanımını engellemek</li>
+      </ul>
+      <p>amaçlarıyla kullanılır.</p>
+
+      <h3>1.2. Kullanıcı İçerikleri</h3>
+      <p>Uygulama anonimdir; isim, e-posta, telefon gibi doğrudan kişisel bilgiler talep edilmez. Ancak uygulama içinde kullanıcılar tarafından oluşturulan içerikler sunucularda saklanır:</p>
+      <ul>
+        <li>Gönderiler (postlar),</li>
+        <li>Özel mesajlar ve mesaj geçmişi,</li>
+        <li>Yüklenen fotoğraflar (Firebase Storage üzerinde saklanır).</li>
+      </ul>
+      <p>Bu içerikler, hizmetin çalışması, moderasyon ve güvenlik amaçlarıyla kaydedilir.</p>
+
+      <h3>1.3. Teknik Veriler</h3>
+      <p>Uygulama, teknik sorunları tespit etmek ve performansı iyileştirmek için hata kayıtları ve performans logları gibi teknik veriler toplayabilir. Google Analytics kullanılmamaktadır. Firebase Crashlytics hata raporlama için kullanılmaktadır.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">2</span> Verilerin Kullanım Amaçları</h2>
+      <p>Toplanan veriler aşağıdaki amaçlarla kullanılmaktadır:</p>
+      <ul>
+        <li>Uygulamanın güvenli ve istikrarlı şekilde çalışmasını sağlamak,</li>
+        <li>Kullanıcılar arasındaki etkileşimi (mesajlaşma, gönderi görüntüleme vb.) sağlamak,</li>
+        <li>Topluluk kurallarını uygulamak ve uygunsuz içerikleri tespit etmek,</li>
+        <li>Kötüye kullanım, spam veya saldırı girişimlerini önlemek,</li>
+        <li>Gerekli durumlarda bildirim göndermek.</li>
+      </ul>
+      <p>Veriler üçüncü kişilere satılmaz ve reklam amaçlı profil çıkarımı için kullanılmaz.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">3</span> Veri Saklama Süresi</h2>
+      <ul>
+        <li>Mesajlar, fotoğraflar ve gönderiler, hizmet sunulmaya devam edildiği sürece saklanabilir.</li>
+        <li>Kullanıcı tarafından silinen içerikler geri getirilemez.</li>
+        <li>Ban ve güvenlik kayıtları, kötüye kullanımı önlemek amacıyla makul süreyle saklanabilir.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">4</span> Üçüncü Taraf Hizmetler</h2>
+      <p>Uygulama, Google'ın sunduğu Firebase altyapısını kullanmaktadır. Kullanılan servisler arasında:</p>
+      <ul>
+        <li>Firebase Firestore (veritabanı),</li>
+        <li>Firebase Storage (fotoğraf ve medya saklama),</li>
+        <li>Firebase Cloud Messaging (bildirim ve cihaz tokeni yönetimi),</li>
+        <li>Firebase Crashlytics (hata raporlama)</li>
+      </ul>
+      <p>bulunmaktadır. Firebase, verileri kendi güvenlik politikaları kapsamında işler ve saklar.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">5</span> Verilerin Paylaşımı</h2>
+      <p>Kullanıcı verileri, aşağıdaki durumlar haricinde üçüncü taraflarla paylaşılmaz:</p>
+      <ul>
+        <li>Yasal zorunluluklar (mahkeme kararı, savcılık talebi vb.),</li>
+        <li>Uygulamanın çalışması için zorunlu olan Firebase altyapısı,</li>
+        <li>Güvenlik ihlallerini önlemek veya tespit etmek için gerekli teknik süreçler.</li>
+      </ul>
+      <p>Veriler hiçbir koşulda satılmaz veya pazarlama amacıyla üçüncü kişilere devredilmez.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">6</span> Kullanıcı Hakları</h2>
+      <p>Kullanıcılar, yürürlükteki kişisel verilerin korunması mevzuatı (KVKK dahil) kapsamında aşağıdaki haklara sahiptir:</p>
+      <ul>
+        <li>Hangi verilerin işlendiğini öğrenme,</li>
+        <li>Yanlış veya eksik verilerin düzeltilmesini talep etme,</li>
+        <li>Verilerin silinmesini veya anonimleştirilmesini talep etme (uygulamanın teknik sınırları ve yasal zorunluluklar çerçevesinde),</li>
+        <li>Verilerin işlenmesine ilişkin bilgi ve açıklama talep etme.</li>
+      </ul>
+      <div class="contact-box">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">İletişim</div>
+          <a href="mailto:contact.kimse@gmail.com">contact.kimse@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">7</span> Güvenlik</h2>
+      <p>Veriler, HTTPS üzerinden şifrelenmiş bağlantılarla iletilir ve Firebase altyapısının sunduğu güvenlik önlemleri ile korunur. Yetkisiz erişimleri önlemek için makul teknik ve idari tedbirler alınmaktadır. Ancak internet ve dijital sistemler hiçbir zaman %100 güvenli garanti edilemez.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">8</span> Gizlilik Politikasındaki Değişiklikler</h2>
+      <p>Bu Gizlilik Politikası zaman zaman güncellenebilir. Güncellenmiş metin bu sayfa üzerinden yayınlanır ve yayınlandığı tarihten itibaren geçerli olur. Uygulamayı kullanmaya devam eden kullanıcılar, güncellenmiş gizlilik politikasını kabul etmiş sayılır.</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">9</span> İletişim</h2>
+      <p>Bu Gizlilik Politikası ile ilgili her türlü soru, talep ve şikâyet için:</p>
+      <div class="contact-box">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">E-posta</div>
+          <a href="mailto:contact.kimse@gmail.com">contact.kimse@gmail.com</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-  <div class="section">
-    <h2>3. Veri Saklama Süresi</h2>
-    <ul>
-      <li>Mesajlar, fotoğraflar ve gönderiler, hizmet sunulmaya devam edildiği sürece saklanabilir.</li>
-      <li>Kullanıcı tarafından silinen içerikler geri getirilemez.</li>
-      <li>Ban ve güvenlik kayıtları, kötüye kullanımı önlemek amacıyla makul süreyle saklanabilir.</li>
-    </ul>
-  </div>
+  <footer>
+    &copy; 2025 Kimse. Tüm hakları saklıdır.
+  </footer>
 
-  <div class="section">
-    <h2>4. Üçüncü Taraf Hizmetler</h2>
-    <p>
-      Uygulama, Google’ın sunduğu Firebase altyapısını kullanmaktadır. Kullanılan servisler arasında:
-    </p>
-    <ul>
-      <li>Firebase Firestore (veritabanı),</li>
-      <li>Firebase Storage (fotoğraf ve medya saklama),</li>
-      <li>Firebase Cloud Messaging (bildirim ve cihaz tokeni yönetimi)</li>
-      <li>Firebase Crashlytics (hata raporlama)</li>
-    </ul>
-    <p>bulunmaktadır. Firebase, verileri kendi güvenlik politikaları kapsamında işler ve saklar.</p>
-  </div>
-
-  <div class="section">
-    <h2>5. Verilerin Paylaşımı</h2>
-    <p>
-      Kullanıcı verileri, aşağıdaki durumlar haricinde üçüncü taraflarla paylaşılmaz:
-    </p>
-    <ul>
-      <li>Yasal zorunluluklar (mahkeme kararı, savcılık talebi vb.),</li>
-      <li>Uygulamanın çalışması için zorunlu olan Firebase altyapısı,</li>
-      <li>Güvenlik ihlallerini önlemek veya tespit etmek için gerekli teknik süreçler.</li>
-    </ul>
-    <p>Veriler hiçbir koşulda satılmaz veya pazarlama amacıyla üçüncü kişilere devredilmez.</p>
-  </div>
-
-  <div class="section">
-    <h2>6. Kullanıcı Hakları</h2>
-    <p>
-      Kullanıcılar, yürürlükteki kişisel verilerin korunması mevzuatı (KVKK dahil) kapsamında aşağıdaki haklara sahiptir:
-    </p>
-    <ul>
-      <li>Hangi verilerin işlendiğini öğrenme,</li>
-      <li>Yanlış veya eksik verilerin düzeltilmesini talep etme,</li>
-      <li>Verilerin silinmesini veya anonimleştirilmesini talep etme (uygulamanın teknik sınırları ve yasal zorunluluklar çerçevesinde),</li>
-      <li>Verilerin işlenmesine ilişkin bilgi ve açıklama talep etme.</li>
-    </ul>
-    <p>
-      Bu haklarla ilgili talepler için iletişim adresi:
-      <br />
-      <strong>E-posta:</strong> <a href="mailto:contact.kimse@gmail.com">contact.kimse@gmail.com</a>
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>7. Güvenlik</h2>
-    <p>
-      Veriler, HTTPS üzerinden şifrelenmiş bağlantılarla iletilir ve Firebase altyapısının sunduğu güvenlik önlemleri ile
-      korunur. Yetkisiz erişimleri önlemek için makul teknik ve idari tedbirler alınmaktadır. Ancak internet ve dijital
-      sistemler hiçbir zaman %100 güvenli garanti edilemez.
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>8. Gizlilik Politikasındaki Değişiklikler</h2>
-    <p>
-      Bu Gizlilik Politikası zaman zaman güncellenebilir. Güncellenmiş metin bu sayfa üzerinden yayınlanır ve yayınlandığı
-      tarihten itibaren geçerli olur. Uygulamayı kullanmaya devam eden kullanıcılar, güncellenmiş gizlilik politikasını
-      kabul etmiş sayılır.
-    </p>
-  </div>
-
-  <div class="section">
-    <h2>9. İletişim</h2>
-    <p>
-      Bu Gizlilik Politikası ile ilgili her türlü soru, talep ve şikâyet için:
-      <br />
-      <strong>E-posta:</strong> <a href="mailto:contact.kimse@gmail.com">contact.kimse@gmail.com</a>
-    </p>
-  </div>
 </body>
 </html>
-
-
