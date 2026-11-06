@@ -202,7 +202,7 @@
   <div class="container">
 
     <div class="card">
-      <p>Bu Gizlilik Politikası, Kimse uygulamasının ("Uygulama") kullanıcı verilerini nasıl topladığını, kullandığını ve sakladığını açıklamaktadır. Uygulamayı kullanarak bu politikayı kabul etmiş olursunuz.</p>
+      <p>Bu Gizlilik Politikası, Kimse uygulamasının ("Uygulama") kullanıcı verilerini nasıl topladığını, kullandığını ve sakladığını açıklamaktadır. Uygulamayı kullanarak bu politikayı kabul etmiş olursunuz. Uygulama yalnızca 18 yaş ve üzeri kullanıcılar içindir; 18 yaşından küçüklerden bilerek veri toplanmaz.</p>
     </div>
 
     <div class="card">
@@ -218,16 +218,34 @@
       <p>amaçlarıyla kullanılır.</p>
 
       <h3>1.2. Kullanıcı İçerikleri</h3>
-      <p>Uygulama anonimdir; isim, e-posta, telefon gibi doğrudan kişisel bilgiler talep edilmez. Ancak uygulama içinde kullanıcılar tarafından oluşturulan içerikler sunucularda saklanır:</p>
+      <p>Uygulama anonimdir; kullanmak için isim, e-posta veya telefon gibi doğrudan kişisel bilgiler istenmez (isteğe bağlı iletişim formu için bkz. 1.4). Ancak uygulama içinde kullanıcılar tarafından oluşturulan içerikler sunucularda saklanır:</p>
       <ul>
-        <li>Gönderiler (postlar),</li>
+        <li>Gönderiler (postlar) ve yorumlar,</li>
         <li>Özel mesajlar ve mesaj geçmişi,</li>
-        <li>Yüklenen fotoğraflar (Firebase Storage üzerinde saklanır).</li>
+        <li>Şikayet ve engelleme kayıtları (şikayet edilen yorumun metni incelenmek üzere rapora kopyalanır),</li>
+        <li>Yüklenen fotoğraf ve videolar (Firebase Storage üzerinde saklanır).</li>
       </ul>
       <p>Bu içerikler, hizmetin çalışması, moderasyon ve güvenlik amaçlarıyla kaydedilir.</p>
 
       <h3>1.3. Teknik Veriler</h3>
-      <p>Uygulama, teknik sorunları tespit etmek ve performansı iyileştirmek için hata kayıtları ve performans logları gibi teknik veriler toplayabilir. Google Analytics kullanılmamaktadır. Firebase Crashlytics hata raporlama için kullanılmaktadır.</p>
+      <p>Uygulama, teknik sorunları tespit etmek ve performansı iyileştirmek için hata kayıtları ve performans logları gibi teknik veriler toplayabilir. Google Analytics kullanılmamaktadır. Firebase Crashlytics hata raporlama için kullanılmaktadır; bir hata raporu yalnızca o rapor için uygulamadaki onay penceresinde "Gönder"e dokunduğunuzda gönderilir; aksi halde hiçbir rapor gönderilmez ve reddettiğiniz rapor gönderilmeden silinir. Uygulama kullanılırken oluşan bir hatanın raporu, onayınızdan sonra uygulamanın bir sonraki açılışında gönderilir; Android'de bu rapora aynı oturumdaki bir "uygulama yanıt vermiyor" (ANR) kaydı da eklenebilir. Sohbet özelliği için çevrimiçi durumunuz (çevrimiçi/çevrimdışı ve son etkinlik zamanı) tutulur. Reklam ölçümü için kullanılan Meta SDK'sı 1.5 numaralı bölümde açıklanmıştır.</p>
+
+      <h3>1.4. İletişim ve İtiraz Formu (isteğe bağlı)</h3>
+      <p>"Bize Ulaşın" veya ban itiraz formunu kullanmak isteğe bağlıdır. Bu formu gönderirseniz yazdığınız e-posta adresi ve mesajınız, anonim kullanıcı kimliğinizle birlikte destek e-posta adresimize iletilir ve yalnızca size yanıt vermek (itirazlarda itirazı değerlendirmek) için kullanılır. İtiraz talepleri değerlendirme için ayrıca kayıt altında tutulur. E-posta adresiniz başka bir amaçla kullanılmaz.</p>
+
+      <h3>1.5. Reklam Ölçümü (Meta SDK)</h3>
+      <p>Uygulama, Meta'daki (Facebook ve Instagram) reklam kampanyalarımızın etkinliğini ölçmek için Meta Platforms'un uygulama olayları SDK'sını (Facebook SDK) kullanır. Uygulama Meta'ya kendi tanımladığı özel olaylar göndermez; SDK'nın otomatik olarak kaydettiği şu olaylar gönderilebilir:</p>
+      <ul>
+        <li>Uygulamanın yüklenmesi ve açılması (oturum başlangıcı ve süresi),</li>
+        <li>Uygulama içi satın alma (jeton) olayları (ürün, tutar ve para birimi),</li>
+        <li>Bu olaylarla birlikte cihaz modeli, işletim sistemi ve uygulama sürümü, dil ve saat dilimi gibi teknik bilgiler.</li>
+      </ul>
+      <p><strong>iOS:</strong> Bu olaylar ve reklam kimliğiniz (IDFA), uygulamanın gösterdiği izin penceresinde (App Tracking Transparency) takibe izin verdiğinizde Meta ile paylaşılır. İzin vermezseniz otomatik olay kaydı ve reklam kimliği toplama kapalı kalır. Bu izni istediğiniz zaman cihazınızın Ayarlar uygulamasındaki Gizlilik ve Güvenlik bölümünden değiştirebilirsiniz. İzni daha sonra kapatırsanız iOS reklam kimliğini hemen gizler; otomatik olay kaydı ise uygulamanın bir sonraki açılışında kapatılır (o açılışta, kapatılmadan önce reklam kimliği içermeyen bir veya daha fazla otomatik olay gönderilebilir).</p>
+      <p><strong>Android:</strong> Bu olaylar ve cihazın reklam kimliği uygulama açıldığında Meta'ya gönderilir. Reklam kimliğinizi cihaz ayarlarınızın reklam bölümünden silebilir veya sıfırlayabilirsiniz.</p>
+      <p>Uygulamamız, e-posta adresiniz gibi kimlik bilgilerinizi ve gönderi, yorum, mesaj gibi içeriklerinizi Meta'ya göndermez. Meta, kendisine iletilen verileri kendi <a href="https://www.facebook.com/privacy/policy/">gizlilik politikası</a> kapsamında işler.</p>
+
+      <h3>1.6. Satın Alımlar</h3>
+      <p>Jeton satın aldığınızda satın almanın doğrulanması ve jetonların hesabınıza eklenmesi için işlem kaydı (ürün, platform, mağaza işlem ve sipariş numaraları, tarih ve Google Play satın alımlarında mağazanın bildirdiği bölge kodu) saklanır. Hediye jeton satın alımlarında gönderen ve alıcı kullanıcının anonim kimlikleri de kaydedilir. Ödeme ve kart bilgileriniz bize iletilmez; App Store veya Google Play tarafından işlenir.</p>
     </div>
 
     <div class="card">
@@ -238,9 +256,11 @@
         <li>Kullanıcılar arasındaki etkileşimi (mesajlaşma, gönderi görüntüleme vb.) sağlamak,</li>
         <li>Topluluk kurallarını uygulamak ve uygunsuz içerikleri tespit etmek,</li>
         <li>Kötüye kullanım, spam veya saldırı girişimlerini önlemek,</li>
-        <li>Gerekli durumlarda bildirim göndermek.</li>
+        <li>Gerekli durumlarda bildirim göndermek,</li>
+        <li>Bize yazdığınızda size yanıt vermek,</li>
+        <li>Takibe izin vermeniz halinde Meta'daki reklam kampanyalarımızın etkinliğini ölçmek (bkz. 1.5).</li>
       </ul>
-      <p>Veriler üçüncü kişilere satılmaz ve reklam amaçlı profil çıkarımı için kullanılmaz.</p>
+      <p>Veriler üçüncü kişilere satılmaz ve tarafımızca reklam amaçlı profil çıkarımı için kullanılmaz. Takibe izin verdiğiniz durumda Meta, kendisine iletilen verileri kendi gizlilik politikası kapsamında işler.</p>
     </div>
 
     <div class="card">
@@ -256,12 +276,20 @@
       <h2><span class="num">4</span> Üçüncü Taraf Hizmetler</h2>
       <p>Uygulama, Google'ın sunduğu Firebase altyapısını kullanmaktadır. Kullanılan servisler arasında:</p>
       <ul>
+        <li>Firebase Authentication (anonim oturum),</li>
         <li>Firebase Firestore (veritabanı),</li>
+        <li>Firebase Realtime Database (çevrimiçi durumu),</li>
         <li>Firebase Storage (fotoğraf ve medya saklama),</li>
         <li>Firebase Cloud Messaging (bildirim ve cihaz tokeni yönetimi),</li>
         <li>Firebase Crashlytics (hata raporlama)</li>
       </ul>
       <p>bulunmaktadır. Firebase, verileri kendi güvenlik politikaları kapsamında işler ve saklar.</p>
+      <p>Ayrıca aşağıdaki hizmetler kullanılmaktadır:</p>
+      <ul>
+        <li>Meta Platforms (Facebook SDK): reklam kampanyalarımızın ölçümü (bkz. 1.5). Meta, verileri kendi <a href="https://www.facebook.com/privacy/policy/">gizlilik politikası</a> kapsamında işler.</li>
+        <li>Google (Gmail): iletişim ve itiraz formu mesajlarının ve şikayet bildirimlerinin destek ve moderasyon e-posta adresimize iletilmesi. Şikayet bildirimleri şikayetin türünü, nedenini, ilgili kullanıcı ve içerik kimliklerini ve şikayet edilen içerikten kısa bir alıntıyı içerir.</li>
+        <li>Apple App Store ve Google Play: jeton satın alımlarının ödeme işlemleri.</li>
+      </ul>
     </div>
 
     <div class="card">
@@ -269,10 +297,11 @@
       <p>Kullanıcı verileri, aşağıdaki durumlar haricinde üçüncü taraflarla paylaşılmaz:</p>
       <ul>
         <li>Yasal zorunluluklar (mahkeme kararı, savcılık talebi vb.),</li>
-        <li>Uygulamanın çalışması için zorunlu olan Firebase altyapısı,</li>
+        <li>Uygulamanın çalışması için zorunlu olan Firebase altyapısı ve 4. bölümde sayılan diğer hizmet sağlayıcılar (e-posta iletimi, ödeme işlemleri),</li>
+        <li>Takibe izin vermeniz halinde Meta'ya iletilen reklam ölçümü verileri (bkz. 1.5),</li>
         <li>Güvenlik ihlallerini önlemek veya tespit etmek için gerekli teknik süreçler.</li>
       </ul>
-      <p>Veriler hiçbir koşulda satılmaz veya pazarlama amacıyla üçüncü kişilere devredilmez.</p>
+      <p>Veriler hiçbir koşulda satılmaz; yukarıdaki durumlar dışında üçüncü kişilere aktarılmaz.</p>
     </div>
 
     <div class="card">
