@@ -228,7 +228,7 @@
       <p>Bu içerikler, hizmetin çalışması, moderasyon ve güvenlik amaçlarıyla kaydedilir.</p>
 
       <h3>1.3. Teknik Veriler</h3>
-      <p>Uygulama, teknik sorunları tespit etmek ve performansı iyileştirmek için hata kayıtları ve performans logları gibi teknik veriler toplayabilir. Google Analytics kullanılmamaktadır. Firebase Crashlytics hata raporlama için kullanılmaktadır; bir hata raporu yalnızca o rapor için uygulamadaki onay penceresinde "Gönder"e dokunduğunuzda gönderilir; aksi halde hiçbir rapor gönderilmez ve reddettiğiniz rapor gönderilmeden silinir. Uygulama kullanılırken oluşan bir hatanın raporu, onayınızdan sonra uygulamanın bir sonraki açılışında gönderilir; Android'de bu rapora aynı oturumdaki bir "uygulama yanıt vermiyor" (ANR) kaydı da eklenebilir. Sohbet özelliği için çevrimiçi durumunuz (çevrimiçi/çevrimdışı ve son etkinlik zamanı) tutulur. Reklam ölçümü için kullanılan Meta SDK'sı 1.5 numaralı bölümde açıklanmıştır.</p>
+      <p>Uygulama, teknik sorunları tespit etmek ve performansı iyileştirmek için hata kayıtları ve performans logları gibi teknik veriler toplayabilir. Kullanım istatistikleri için Google Analytics for Firebase kullanılmaktadır (bkz. 1.7). Firebase Crashlytics hata raporlama için kullanılmaktadır; bir hata raporu yalnızca o rapor için uygulamadaki onay penceresinde "Gönder"e dokunduğunuzda gönderilir; aksi halde hiçbir rapor gönderilmez ve reddettiğiniz rapor gönderilmeden silinir. Uygulama kullanılırken oluşan bir hatanın raporu, onayınızdan sonra uygulamanın bir sonraki açılışında gönderilir; Android'de bu rapora aynı oturumdaki bir "uygulama yanıt vermiyor" (ANR) kaydı da eklenebilir. Sohbet özelliği için çevrimiçi durumunuz (çevrimiçi/çevrimdışı ve son etkinlik zamanı) tutulur. Reklam ölçümü için kullanılan Meta SDK'sı 1.5 numaralı bölümde açıklanmıştır.</p>
 
       <h3>1.4. İletişim ve İtiraz Formu (isteğe bağlı)</h3>
       <p>"Bize Ulaşın" veya ban itiraz formunu kullanmak isteğe bağlıdır. Bu formu gönderirseniz yazdığınız e-posta adresi ve mesajınız, anonim kullanıcı kimliğinizle birlikte destek e-posta adresimize iletilir ve yalnızca size yanıt vermek (itirazlarda itirazı değerlendirmek) için kullanılır. İtiraz talepleri değerlendirme için ayrıca kayıt altında tutulur. E-posta adresiniz başka bir amaçla kullanılmaz.</p>
@@ -246,6 +246,12 @@
 
       <h3>1.6. Satın Alımlar</h3>
       <p>Jeton satın aldığınızda satın almanın doğrulanması ve jetonların hesabınıza eklenmesi için işlem kaydı (ürün, platform, mağaza işlem ve sipariş numaraları, tarih ve Google Play satın alımlarında mağazanın bildirdiği bölge kodu) saklanır. Hediye jeton satın alımlarında gönderen ve alıcı kullanıcının anonim kimlikleri de kaydedilir. Ödeme ve kart bilgileriniz bize iletilmez; App Store veya Google Play tarafından işlenir.</p>
+
+      <h3>1.7. Kullanım İstatistikleri (Google Analytics for Firebase)</h3>
+      <p>Uygulama, kullanımı ölçmek için Google Analytics for Firebase kullanır. İlk açılış bildirimini kabul etmenizden sonra şu bilgiler Google'a iletilir: uygulamanın açılması, görüntülenen ana sekmeler ve gönderi, yorum, sohbet başlatma, beğeni, jeton satın alma ve bildirime dokunma işlemlerinin gerçekleştiği bilgisi; bunlarla birlikte cihaz modeli, işletim sistemi ve uygulama sürümü, IP adresinden türetilen yaklaşık konum ve bu kuruluma özgü rastgele bir kimlik. Gönderi, yorum ve mesaj içerikleriniz, kullanıcı kimliğiniz ve reklam kimliğiniz bu kapsamda gönderilmez; bu veriler reklam kişiselleştirme için kullanılmaz.</p>
+
+      <h3>1.8. Yapay Zekâ Denetimi ve Kimse Asistanı</h3>
+      <p>Uygulamada yapay zekâ denetim sistemi kullanılmaktadır. Bir gönderi yayınlanmadan önce metni ve varsa fotoğrafı, topluluk kurallarına uygunluğunun otomatik olarak denetlenmesi ve gönderinin altına "Kimse Asistanı (yapay zekâ)" etiketiyle ilk yanıtın yazılması için Anthropic'in Claude yapay zekâ hizmetine iletilir. Kurallara aykırı bulunan gönderi yayınlanmaz ve saklanmaz. Şikayet edilen gönderi ve yorumlar da aynı hizmetle incelenir; açıkça kurallara aykırı bulunan içerik otomatik olarak kaldırılabilir ve sahibine bildirilir. Bu işlemlerde kullanıcı kimliğiniz ya da cihaz tanımlayıcınız iletilmez; özel mesajlarınız bu hizmete gönderilmez. Otomatik bir karara "Bize Ulaşın" bölümünden itiraz edebilirsiniz; itirazlar bir insan tarafından değerlendirilir. Anthropic, kendisine iletilen verileri kendi <a href="https://www.anthropic.com/legal/privacy">gizlilik politikası</a> kapsamında işler.</p>
     </div>
 
     <div class="card">
@@ -254,7 +260,8 @@
       <ul>
         <li>Uygulamanın güvenli ve istikrarlı şekilde çalışmasını sağlamak,</li>
         <li>Kullanıcılar arasındaki etkileşimi (mesajlaşma, gönderi görüntüleme vb.) sağlamak,</li>
-        <li>Topluluk kurallarını uygulamak ve uygunsuz içerikleri tespit etmek,</li>
+        <li>Topluluk kurallarını uygulamak ve uygunsuz içerikleri tespit etmek (yapay zekâ denetimi dahil, bkz. 1.8),</li>
+        <li>Uygulamanın nasıl kullanıldığını ölçmek ve iyileştirmek (bkz. 1.7),</li>
         <li>Kötüye kullanım, spam veya saldırı girişimlerini önlemek,</li>
         <li>Gerekli durumlarda bildirim göndermek,</li>
         <li>Bize yazdığınızda size yanıt vermek,</li>
@@ -281,12 +288,14 @@
         <li>Firebase Realtime Database (çevrimiçi durumu),</li>
         <li>Firebase Storage (fotoğraf ve medya saklama),</li>
         <li>Firebase Cloud Messaging (bildirim ve cihaz tokeni yönetimi),</li>
-        <li>Firebase Crashlytics (hata raporlama)</li>
+        <li>Firebase Crashlytics (hata raporlama),</li>
+        <li>Google Analytics for Firebase (kullanım istatistikleri)</li>
       </ul>
       <p>bulunmaktadır. Firebase, verileri kendi güvenlik politikaları kapsamında işler ve saklar.</p>
       <p>Ayrıca aşağıdaki hizmetler kullanılmaktadır:</p>
       <ul>
         <li>Meta Platforms (Facebook SDK): reklam kampanyalarımızın ölçümü (bkz. 1.5). Meta, verileri kendi <a href="https://www.facebook.com/privacy/policy/">gizlilik politikası</a> kapsamında işler.</li>
+        <li>Anthropic (Claude): gönderilerin ve şikayet edilen içeriklerin yapay zekâ ile denetlenmesi ve Kimse Asistanı yanıtları (bkz. 1.8). Anthropic, verileri kendi <a href="https://www.anthropic.com/legal/privacy">gizlilik politikası</a> kapsamında işler.</li>
         <li>Google (Gmail): iletişim ve itiraz formu mesajlarının ve şikayet bildirimlerinin destek ve moderasyon e-posta adresimize iletilmesi. Şikayet bildirimleri şikayetin türünü, nedenini, ilgili kullanıcı ve içerik kimliklerini ve şikayet edilen içerikten kısa bir alıntıyı içerir.</li>
         <li>Apple App Store ve Google Play: jeton satın alımlarının ödeme işlemleri.</li>
       </ul>
@@ -297,7 +306,7 @@
       <p>Kullanıcı verileri, aşağıdaki durumlar haricinde üçüncü taraflarla paylaşılmaz:</p>
       <ul>
         <li>Yasal zorunluluklar (mahkeme kararı, savcılık talebi vb.),</li>
-        <li>Uygulamanın çalışması için zorunlu olan Firebase altyapısı ve 4. bölümde sayılan diğer hizmet sağlayıcılar (e-posta iletimi, ödeme işlemleri),</li>
+        <li>Uygulamanın çalışması için zorunlu olan Firebase altyapısı ve 4. bölümde sayılan diğer hizmet sağlayıcılar (e-posta iletimi, ödeme işlemleri, yapay zekâ denetimi),</li>
         <li>Takibe izin vermeniz halinde Meta'ya iletilen reklam ölçümü verileri (bkz. 1.5),</li>
         <li>Güvenlik ihlallerini önlemek veya tespit etmek için gerekli teknik süreçler.</li>
       </ul>
